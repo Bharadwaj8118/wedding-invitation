@@ -2,7 +2,10 @@ export default function Footer() {
   const handleScroll = (e, targetId) => {
     e.preventDefault();
     const target = document.getElementById(targetId);
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    if (target) {
+      const topOffset = target.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top: topOffset, behavior: 'smooth' });
+    }
   };
 
   return (
