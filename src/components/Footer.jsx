@@ -1,4 +1,10 @@
 export default function Footer() {
+  const handleScroll = (e, targetId) => {
+    e.preventDefault();
+    const target = document.getElementById(targetId);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <footer className="footer">
       <div className="container footer__inner">
@@ -7,7 +13,7 @@ export default function Footer() {
           <div className="footer__small">Made with love for your special day.</div>
         </div>
         <div className="footer__right">
-          <a className="footer__link" href="#hero">Back to top ↑</a>
+          <a className="footer__link" href="#hero" onClick={(e) => handleScroll(e, 'hero')}>Back to top ↑</a>
         </div>
       </div>
 

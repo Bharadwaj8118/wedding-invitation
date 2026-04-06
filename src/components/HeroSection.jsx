@@ -4,6 +4,12 @@ import FloatLayer from './FloatLayer';
 import ClosedFlowers from './ClosedFlowers';
 
 export default function HeroSection({ bookOpen, onBookToggle }) {
+  const handleScroll = (e, targetId) => {
+    e.preventDefault();
+    const target = document.getElementById(targetId);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section id="hero" className="hero">
       <div className="container hero__grid">
@@ -29,8 +35,8 @@ export default function HeroSection({ bookOpen, onBookToggle }) {
               Tap on the invitation to see the magic
             </p>
             <div className="hero__cta">
-              <a className="btn" href="#rsvp">Enter Your Name</a>
-              <a className="btn btn-ghost" href="#venue">Find the Venue</a>
+              <a className="btn" href="#rsvp" onClick={(e) => handleScroll(e, 'rsvp')}>Enter Your Name</a>
+              <a className="btn btn-ghost" href="#venue" onClick={(e) => handleScroll(e, 'venue')}>Find the Venue</a>
             </div>
           </motion.div>
 
@@ -64,7 +70,7 @@ export default function HeroSection({ bookOpen, onBookToggle }) {
       </div>
 
       <div className="scroll-indicator">
-        <a href="#rsvp" className="scroll-indicator__link" aria-label="Scroll to RSVP">
+        <a href="#rsvp" className="scroll-indicator__link" aria-label="Scroll to RSVP" onClick={(e) => handleScroll(e, 'rsvp')}>
           <span>Scroll down</span>
         </a>
       </div>
