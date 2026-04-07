@@ -70,7 +70,7 @@ export default function InvitationBook({ open, onToggle }) {
       role="button"
       tabIndex={0}
       aria-expanded={open}
-      aria-label={open ? 'Wedding invitation is open. Double-tap to close.' : 'Open the wedding invitation'}
+      aria-label={open ? 'Wedding invitation is open. Tap to close.' : 'Open the wedding invitation'}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
     >
@@ -101,7 +101,7 @@ export default function InvitationBook({ open, onToggle }) {
             <div className="pages__header">
               <div className="pages__title">Naveen &amp; Anjali</div>
               <div className="pages__subtitle">
-                Wedding Invitation &nbsp;·&nbsp; <span className="pages__close-hint">Double-tap to close</span>
+                Wedding Invitation &nbsp;·&nbsp; <span className="pages__close-hint">Tap to close</span>
               </div>
             </div>
             <div className="video-wrap">
@@ -120,7 +120,7 @@ export default function InvitationBook({ open, onToggle }) {
         </div>
       </div>
 
-      <div className="invitation-book__hint" aria-hidden={false}>{open ? 'Double tap to close' : 'Tap to open'}</div>
+      <div className="invitation-book__hint" aria-hidden={false}>{open ? 'Tap to close' : 'Tap to open'}</div>
     </div>
   );
 }

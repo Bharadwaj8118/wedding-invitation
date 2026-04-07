@@ -12,6 +12,7 @@ function App() {
   const [bookOpen, setBookOpen]   = useState(false);
   const [musicPlaying, setMusicPlaying] = useState(false);
   const audioRef = useRef(null);
+  const userPausedRef = useRef(false);
 
   const handleMusicToggle = (e) => {
     e?.preventDefault();
@@ -19,15 +20,52 @@ function App() {
     if (musicPlaying) {
       audioRef.current.pause();
       setMusicPlaying(false);
+      userPausedRef.current = true;
     } else {
       audioRef.current.play().then(() => {
         setMusicPlaying(true);
+        userPausedRef.current = false;
       }).catch(err => {
         console.error("Music playback failed", err);
         setMusicPlaying(false);
       });
     }
   };
+  // Attempt autoplay on mount or first interaction
+  useEffect(() => {
+    const tryPlayAudio = async () => {
+      if (audioRef.current && audioRef.current.paused && !userPausedRef.current) {
+        try {
+          await audioRef.current.play();
+          setMusicPlaying(true);
+        } catch (err) {
+          // Autoplay blocked by browser policy, silently catch
+        }
+      }
+    };
+
+    // Attempt immediately
+    tryPlayAudio();
+
+    // Fallback: play on first user interaction if blocked
+    const onInteract = () => {
+      tryPlayAudio();
+      document.removeEventListener('click', onInteract);
+      document.removeEventListener('touchstart', onInteract);
+      document.removeEventListener('keydown', onInteract);
+    };
+
+    document.addEventListener('click', onInteract);
+    document.addEventListener('touchstart', onInteract);
+    document.addEventListener('keydown', onInteract);
+
+    return () => {
+      document.removeEventListener('click', onInteract);
+      document.removeEventListener('touchstart', onInteract);
+      document.removeEventListener('keydown', onInteract);
+    };
+  }, []);
+
   // Automatically pause background music when the book opens, and resume when closed
   useEffect(() => {
     if (!audioRef.current) return;
@@ -58,6 +96,7 @@ function App() {
       <audio 
         ref={audioRef} 
         loop 
+        autoPlay
         preload="metadata"
         src="/audio.mp3" 
       />

@@ -974,7 +974,7 @@ input[type="text"]:focus {
   opacity: 1;
   transition: opacity 500ms var(--ease), transform 500ms var(--ease);
 }
-/* On open: the text will update to 'Double tap to close', so we keep it visible */
+/* On open: the text will update to 'Tap to close', so we keep it visible */
 
 /* ── Responsive ── */
 
