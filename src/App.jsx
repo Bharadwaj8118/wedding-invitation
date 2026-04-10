@@ -5,6 +5,7 @@ import HeroSection from './components/HeroSection';
 import RsvpSection from './components/RsvpSection';
 import MessageSection from './components/MessageSection';
 import VenueSection from './components/VenueSection';
+import CountdownTimer from './components/CountdownTimer';
 import Footer from './components/Footer';
 
 function App() {
@@ -88,6 +89,7 @@ function App() {
         <div className="section container">
           <MessageSection guestName={guestName} />
         </div>
+        <CountdownTimer />
         <div id="venue" className="section container">
           <VenueSection />
         </div>

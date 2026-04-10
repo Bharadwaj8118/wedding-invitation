@@ -22,7 +22,7 @@ export default function Footer() {
 
       <div className="footer__credits" style={{ marginTop: '40px', textAlign: 'center', width: '100%' }}>
         <div style={{ fontFamily: '"Playfair Display", Georgia, serif', fontStyle: 'italic', color: 'var(--gold-2)', fontSize: '18px', marginBottom: '6px' }}>
-          Made by
+          Created by
         </div>
         <div style={{ fontFamily: '"Great Vibes", cursive', fontWeight: '400', color: '#b88a55', fontSize: '32px' }}>
           Munishekar Bhardwaj

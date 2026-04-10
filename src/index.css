@@ -1153,3 +1153,138 @@ input[type="text"]:focus {
   will-change: transform;
   filter: drop-shadow(0 6px 10px rgba(202, 165, 106, 0.25));
 }
+
+/* ── Countdown Timer ── */
+.countdown-section {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.countdown-card {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(202, 165, 106, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+  padding: 30px 20px;
+  box-shadow: 0 18px 44px rgba(30, 15, 8, 0.05);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.countdown-head {
+  margin-bottom: 24px;
+}
+
+.countdown-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 32px;
+  color: #b88a55;
+  margin: 0 0 4px;
+}
+
+.countdown-subtitle {
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+
+.countdown-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.luxury-card {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(202, 165, 106, 0.22);
+  border-radius: var(--radius);
+  padding: 40px 20px;
+  box-shadow: 0 12px 36px rgba(35, 20, 10, 0.04);
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.luxury-head {
+  margin-bottom: 32px;
+}
+
+.luxury-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 36px;
+  color: #b88a55;
+  margin: 0 0 6px;
+}
+
+.luxury-subtitle {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+
+.luxury-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.luxury-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 80px;
+}
+
+.luxury-unit__number-wrap {
+  position: relative;
+  height: 64px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.luxury-unit__number {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 58px;
+  font-weight: 500;
+  color: var(--gold-2);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.luxury-unit__label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  color: var(--muted);
+}
+
+.luxury-divider {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(180deg, transparent, rgba(202, 165, 106, 0.35), transparent);
+}
+
+@media (max-width: 768px) {
+  .luxury-grid {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .luxury-divider {
+    display: none;
+  }
+  .luxury-unit {
+    min-width: 70px;
+  }
+  .luxury-unit__number {
+    font-size: 44px;
+  }
+}
+
